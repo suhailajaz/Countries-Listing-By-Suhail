@@ -16,15 +16,13 @@ class MapViewController: UIViewController{
     
     let countries = [Country]()
     var currentCountry : CountryPoint?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
         giveBordersAndCornerRadius()
         
-         currentCountry = CountryPoint(title: "argentina", coordinate: CLLocationCoordinate2D(latitude: 23.4241, longitude: 53.8478))
-        if let currentCountry = currentCountry{
-            mapView.addAnnotation(currentCountry )
-        }
+        addMarker(markerPlace: Country(name: Name(common: "france"), latlng: [46.2276,2.2137]))
       
     
     }
@@ -43,18 +41,8 @@ extension MapViewController{
                 print("\(chosenCountry ) returned from drop down")
                
                 guard let mapCountry = chosenCountry else {return}
-                let lat = mapCountry.latlng[0]
-                let lon = mapCountry.latlng[1]
-                let newPoint = CountryPoint(title: mapCountry.name.common, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
-                DispatchQueue.main.async{[weak self] in
-                    self?.currentCountry = newPoint
-                    self?.mapView.addAnnotation(newPoint)
-                    self?.lblCountry.text = mapCountry.name.common
-                    let center = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-                    let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-                    
-                    self?.mapView.setRegion(region, animated: true)
-                }
+                self.addMarker(markerPlace: mapCountry)
+                
                // let currentCountry = CountryPoint(title: mapCountry.name.common, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
                // mapView.addAnnotation(currentCountry)
            
@@ -72,21 +60,21 @@ extension MapViewController{
 }
 
 extension MapViewController: MKMapViewDelegate{
-    func mapViewWillStartLoadingMap(_ mapView: MKMapView) {
-
-        let center = CLLocationCoordinate2D(latitude: currentCountry?.coordinate.latitude ?? 0.0, longitude: currentCountry?.coordinate.longitude ?? 0.0)
-
-            let regionRadius: CLLocationDistance = 900_000
-       
-            let region = MKCoordinateRegion(center: center, latitudinalMeters: regionRadius * 2.0, longitudinalMeters: regionRadius * 2.0)
-
-            mapView.setRegion(region, animated: true)
-        }
+//    func mapViewWillStartLoadingMap(_ mapView: MKMapView) {
+//
+//        let center = CLLocationCoordinate2D(latitude: currentCountry?.coordinate.latitude ?? 0.0, longitude: currentCountry?.coordinate.longitude ?? 0.0)
+//
+//            let regionRadius: CLLocationDistance = 900_000
+//       
+//            let region = MKCoordinateRegion(center: center, latitudinalMeters: regionRadius * 2.0, longitudinalMeters: regionRadius * 2.0)
+//
+//            mapView.setRegion(region, animated: true)
+//        }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard annotation is CountryPoint else { return nil }
         
-        let identifier = "Capital"
+        let identifier = "Country"
         
         var  annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         
@@ -109,10 +97,42 @@ extension MapViewController: MKMapViewDelegate{
 
 // MARK: - Custom functions{
 extension MapViewController{
+    func addMarker(markerPlace: Country){
+//        currentCountry = CountryPoint(title: "argentina", coordinate: CLLocationCoordinate2D(latitude: 23.4241, longitude: 53.8478))
+//       if let currentCountry = currentCountry{
+//           mapView.addAnnotation(currentCountry)
+//       }
+        
+        
+        let lat = markerPlace.latlng[0]
+        let lon = markerPlace.latlng[1]
+        let newPoint = CountryPoint(title: markerPlace.name.common, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
+        
+        DispatchQueue.main.async{[weak self] in
+            //self?.currentCountry = newPoint
+            self?.removePreviousAnnotations()
+            self?.mapView.addAnnotation(newPoint)
+            self?.lblCountry.text = markerPlace.name.common
+            self?.updateRegion(lat: lat, lon: lon)
+        }
+    }
     
+    func updateRegion(lat: Double, lon:Double){
+        DispatchQueue.main.async{[weak self] in
+           
+            let center = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 2.00, longitudeDelta: 2.00))
+            
+            self?.mapView.setRegion(region, animated: true)
+        }
+    }
     func giveBordersAndCornerRadius(){
         vwDropDown.layer.borderColor = UIColor.darkGray.cgColor
         vwDropDown.layer.borderWidth = 1
         vwDropDown.layer.cornerRadius = 12
+    }
+    func removePreviousAnnotations(){
+        let allAnnotations = self.mapView.annotations
+        self.mapView.removeAnnotations(allAnnotations)
     }
 }
