@@ -15,6 +15,7 @@ class MapViewController: UIViewController{
     @IBOutlet var vwDropDown: UIView!
     @IBOutlet var lblCountry: UILabel!
     
+    @IBOutlet var btnChangeMapType: UIControl!
     let countries = [Country]()
     var currentCountry : CountryPoint?
     let locationManager = CLLocationManager()
@@ -24,13 +25,14 @@ class MapViewController: UIViewController{
         locationManager.delegate = self
       
         giveBordersAndCornerRadius()
-        fetchInitialLocation()
+        fetchCurrentLocation()
         //addMarker(markerPlace: Country(name: Name(common: "france"), latlng: [46.2276,2.2137]))
       
     
     }
 
-    
+  
+   
 }
 // MARK: - IBActions
 extension MapViewController{
@@ -59,7 +61,33 @@ extension MapViewController{
        
         }
     }
-
+    @IBAction func changeMapTapped(_ sender: UIControl) {
+        let ac = UIAlertController(title: "Select map type", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Satellite", style: .default,handler: { [weak self] _ in
+            self?.title = "Satellite"
+            self?.mapView.mapType = .satellite
+        }))
+        ac.addAction(UIAlertAction(title: "Hybrid", style: .default,handler: { [weak self] _ in
+            self?.title = "Hybrid"
+            self?.mapView.mapType = .hybrid
+        }))
+        ac.addAction(UIAlertAction(title: "Satellite Flyover", style: .default,handler: { [weak self] _ in
+            self?.title = "Satellite Flyover"
+            self?.mapView.mapType = .satelliteFlyover
+        }))
+        ac.addAction(UIAlertAction(title: "Standard", style: .default,handler: { [weak self] _ in
+            self?.title = "Standard"
+            self?.mapView.mapType = .standard
+        }))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .default))
+        
+        ac.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(ac,animated: true)
+    }
+    @IBAction func currentLocationTapped(_ sender: UIControl) {
+        fetchCurrentLocation()
+    }
+    
 }
 
 extension MapViewController: MKMapViewDelegate{
@@ -133,12 +161,18 @@ extension MapViewController{
         vwDropDown.layer.borderColor = UIColor.darkGray.cgColor
         vwDropDown.layer.borderWidth = 1
         vwDropDown.layer.cornerRadius = 12
+        
+        btnChangeMapType.layer.borderColor = UIColor.darkGray.cgColor
+        btnChangeMapType.layer.backgroundColor = UIColor.link.cgColor
+        btnChangeMapType.layer.borderWidth = 1
+        btnChangeMapType.layer.cornerRadius = 12
+        
     }
     func removePreviousAnnotations(){
         let allAnnotations = self.mapView.annotations
         self.mapView.removeAnnotations(allAnnotations)
     }
-    func fetchInitialLocation(){
+    func fetchCurrentLocation(){
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
     }

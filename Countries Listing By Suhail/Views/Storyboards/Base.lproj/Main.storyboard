@@ -65,21 +65,70 @@
                                     <constraint firstItem="SLW-Pv-Kz5" firstAttribute="height" secondItem="ovZ-ew-usb" secondAttribute="height" multiplier="0.7" id="rim-2P-v57"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KdB-UE-tc6" userLabel="Viewchangemap" customClass="UIControl">
+                                <rect key="frame" x="233" y="719" width="150" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Map Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNb-bG-2Nf">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="tintColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="rNb-bG-2Nf" secondAttribute="bottom" id="V6l-wy-kue"/>
+                                    <constraint firstItem="rNb-bG-2Nf" firstAttribute="top" secondItem="KdB-UE-tc6" secondAttribute="top" id="Xkt-qi-WRd"/>
+                                    <constraint firstAttribute="width" constant="150" id="h5r-iW-G9E"/>
+                                    <constraint firstAttribute="trailing" secondItem="rNb-bG-2Nf" secondAttribute="trailing" id="lln-ir-cIg"/>
+                                    <constraint firstItem="rNb-bG-2Nf" firstAttribute="leading" secondItem="KdB-UE-tc6" secondAttribute="leading" id="qzg-0U-ivV"/>
+                                    <constraint firstAttribute="height" constant="30" id="yw6-iI-bkS"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="changeMapTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LRg-4r-Xhe"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ofr-ZU-cwh" customClass="UIControl">
+                                <rect key="frame" x="333" y="129" width="40" height="40"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2GE-g4-0Bc">
+                                        <rect key="frame" x="0.0" y="1" width="40" height="38.666666666666671"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="2GE-g4-0Bc" secondAttribute="trailing" id="9hT-2F-JqU"/>
+                                    <constraint firstAttribute="width" constant="40" id="L3z-PD-aBT"/>
+                                    <constraint firstAttribute="height" constant="40" id="Ldu-7p-RR1"/>
+                                    <constraint firstItem="2GE-g4-0Bc" firstAttribute="top" secondItem="ofr-ZU-cwh" secondAttribute="top" id="UIq-EP-NDo"/>
+                                    <constraint firstItem="2GE-g4-0Bc" firstAttribute="leading" secondItem="ofr-ZU-cwh" secondAttribute="leading" id="hwp-4i-sXX"/>
+                                    <constraint firstAttribute="bottom" secondItem="2GE-g4-0Bc" secondAttribute="bottom" id="m7V-8g-J0T"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="currentLocationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="17U-kA-VKr"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ovZ-ew-usb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="J4W-tu-6Em"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ovZ-ew-usb" secondAttribute="trailing" constant="5" id="WlZ-W3-xYy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KdB-UE-tc6" secondAttribute="bottom" constant="20" id="Wu8-bw-77t"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5eu-sc-Rhh" secondAttribute="bottom" id="XeK-ay-Xew"/>
                             <constraint firstItem="5eu-sc-Rhh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XkH-r2-BMV"/>
+                            <constraint firstItem="ofr-ZU-cwh" firstAttribute="top" secondItem="ovZ-ew-usb" secondAttribute="bottom" constant="20" id="cxf-GX-wEG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ofr-ZU-cwh" secondAttribute="trailing" constant="20" id="eAF-aU-Exq"/>
                             <constraint firstItem="ovZ-ew-usb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="jH8-Mf-Kx3"/>
                             <constraint firstItem="5eu-sc-Rhh" firstAttribute="top" secondItem="ovZ-ew-usb" secondAttribute="bottom" constant="5" id="lzs-7X-bC1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5eu-sc-Rhh" secondAttribute="trailing" constant="-5" id="qja-FM-eb3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KdB-UE-tc6" secondAttribute="trailing" constant="10" id="wpS-Iw-T6G"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="mappin.and.ellipse.circle.fill" catalog="system" id="WUV-br-lB0"/>
                     <connections>
+                        <outlet property="btnChangeMapType" destination="KdB-UE-tc6" id="Ivb-15-qrb"/>
                         <outlet property="lblCountry" destination="SLW-Pv-Kz5" id="MgJ-T4-2ZV"/>
                         <outlet property="mapView" destination="5eu-sc-Rhh" id="2ru-Xx-kUL"/>
                         <outlet property="vwDropDown" destination="ovZ-ew-usb" id="Pcq-kr-hMm"/>
@@ -249,9 +298,13 @@
         <image name="arrowshape.left" catalog="system" width="128" height="104"/>
         <image name="chevron.down" catalog="system" width="128" height="70"/>
         <image name="flag.square" catalog="system" width="128" height="114"/>
+        <image name="location.circle.fill" catalog="system" width="128" height="123"/>
         <image name="mappin.and.ellipse.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
