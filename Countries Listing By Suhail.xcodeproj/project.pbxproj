@@ -19,6 +19,7 @@
 		1A081AE32B494A6300F88C7C /* DropDownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A081AE22B494A6300F88C7C /* DropDownViewController.swift */; };
 		1A081AEB2B4955DC00F88C7C /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A081AEA2B4955DC00F88C7C /* Country.swift */; };
 		1A081AED2B49564200F88C7C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A081AEC2B49564200F88C7C /* NetworkManager.swift */; };
+		1A081AEF2B49946900F88C7C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A081AEE2B49946900F88C7C /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		1A081AE22B494A6300F88C7C /* DropDownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownViewController.swift; sourceTree = "<group>"; };
 		1A081AEA2B4955DC00F88C7C /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		1A081AEC2B49564200F88C7C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		1A081AEE2B49946900F88C7C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				1A081ABB2B492A4D00F88C7C /* AppDelegate.swift */,
 				1A081ABD2B492A4D00F88C7C /* SceneDelegate.swift */,
 				1A081AEC2B49564200F88C7C /* NetworkManager.swift */,
+				1A081AEE2B49946900F88C7C /* LocationManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			files = (
 				1A081AED2B49564200F88C7C /* NetworkManager.swift in Sources */,
 				1A081AC62B492A4D00F88C7C /* Countries_Listing_By_Suhail.xcdatamodeld in Sources */,
+				1A081AEF2B49946900F88C7C /* LocationManager.swift in Sources */,
 				1A081AC02B492A4D00F88C7C /* MapViewController.swift in Sources */,
 				1A081ABC2B492A4D00F88C7C /* AppDelegate.swift in Sources */,
 				1A081AE32B494A6300F88C7C /* DropDownViewController.swift in Sources */,

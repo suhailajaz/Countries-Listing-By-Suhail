@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapViewController: UIViewController{
 
@@ -16,13 +17,15 @@ class MapViewController: UIViewController{
     
     let countries = [Country]()
     var currentCountry : CountryPoint?
-    
+    let locationManager = CLLocationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
+        locationManager.delegate = self
+      
         giveBordersAndCornerRadius()
-        
-        addMarker(markerPlace: Country(name: Name(common: "france"), latlng: [46.2276,2.2137]))
+        fetchInitialLocation()
+        //addMarker(markerPlace: Country(name: Name(common: "france"), latlng: [46.2276,2.2137]))
       
     
     }
@@ -135,4 +138,33 @@ extension MapViewController{
         let allAnnotations = self.mapView.annotations
         self.mapView.removeAnnotations(allAnnotations)
     }
+    func fetchInitialLocation(){
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+    }
+}
+
+
+// MARK: - CLLocationManagerDelegate
+extension MapViewController: CLLocationManagerDelegate{
+    
+     func locationManager(_ manager: CLLocationManager,
+                          didUpdateLocations locations: [CLLocation]){
+         
+         if  let location = locations.last{
+             locationManager.stopUpdatingLocation()
+             let lat = location.coordinate.latitude
+             let lon = location.coordinate.longitude
+            // weatherManager.fetchWeather(latitude: lat, longitude: lon)
+             addMarker(markerPlace: Country(name: Name(common: "Current Location"), latlng: [lat,lon]))
+             
+         }
+    
+     
+     }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("error fetching location")
+        addMarker(markerPlace: Country(name: Name(common: "Failsafe Location"), latlng: [34.1289,74.8425]))
+    }
+
 }
