@@ -128,22 +128,41 @@ extension MapViewController: MKMapViewDelegate{
 
 // MARK: - Custom functions{
 extension MapViewController{
-    func addMarker(markerPlace: Country){
+    func addMarker(markerPlace: CountriesCD){
 //        currentCountry = CountryPoint(title: "argentina", coordinate: CLLocationCoordinate2D(latitude: 23.4241, longitude: 53.8478))
 //       if let currentCountry = currentCountry{
 //           mapView.addAnnotation(currentCountry)
 //       }
         
         
-        let lat = markerPlace.latlng[0]
-        let lon = markerPlace.latlng[1]
-        let newPoint = CountryPoint(title: markerPlace.name.common, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
+        let lat = markerPlace.lat
+        let lon = markerPlace.lon
+        let newPoint = CountryPoint(title: markerPlace.name, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
         
         DispatchQueue.main.async{[weak self] in
             //self?.currentCountry = newPoint
             self?.removePreviousAnnotations()
             self?.mapView.addAnnotation(newPoint)
-            self?.lblCountry.text = markerPlace.name.common
+            self?.lblCountry.text = markerPlace.name
+            self?.updateRegion(lat: lat, lon: lon)
+        }
+    }
+    func addDefaultMarker(place: String,lat: Double, lon: Double){
+//        currentCountry = CountryPoint(title: "argentina", coordinate: CLLocationCoordinate2D(latitude: 23.4241, longitude: 53.8478))
+//       if let currentCountry = currentCountry{
+//           mapView.addAnnotation(currentCountry)
+//       }
+        
+        
+       // let lat = markerPlace.lat
+      //  let lon = markerPlace.lon
+        let newPoint = CountryPoint(title: place, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
+        
+        DispatchQueue.main.async{[weak self] in
+            //self?.currentCountry = newPoint
+            self?.removePreviousAnnotations()
+            self?.mapView.addAnnotation(newPoint)
+            self?.lblCountry.text = place
             self?.updateRegion(lat: lat, lon: lon)
         }
     }
@@ -190,7 +209,7 @@ extension MapViewController: CLLocationManagerDelegate{
              let lat = location.coordinate.latitude
              let lon = location.coordinate.longitude
             // weatherManager.fetchWeather(latitude: lat, longitude: lon)
-             addMarker(markerPlace: Country(name: Name(common: "Current Location"), latlng: [lat,lon], flags: Flags(png: "https://flagcdn.com/w320/in.pngF")))
+             addDefaultMarker(place: "Current Location", lat: lat, lon: lon)
              
          }
     
@@ -198,7 +217,8 @@ extension MapViewController: CLLocationManagerDelegate{
      }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error fetching location")
-        addMarker(markerPlace: Country(name: Name(common: "Failsafe Location"), latlng: [34.1289,74.8425], flags: Flags(png: "https://flagcdn.com/w320/in.png")))
+        //addMarker(markerPlace: Country(name: Name(common: "Failsafe Location"), latlng: [34.1289,74.8425], flags: Flags(png: "https://flagcdn.com/w320/in.png")))
+        addDefaultMarker(place: "Failsafe Location", lat: 34.1289, lon: 74.8425)
     }
 
 }

@@ -21,6 +21,9 @@
 		1A081AED2B49564200F88C7C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A081AEC2B49564200F88C7C /* NetworkManager.swift */; };
 		1A081AEF2B49946900F88C7C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A081AEE2B49946900F88C7C /* LocationManager.swift */; };
 		1A081AF22B49B04200F88C7C /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A081AF12B49B04200F88C7C /* DatabaseManager.swift */; };
+		1A683E2D2B4A501500BC18E6 /* CountriesCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A683E2B2B4A501500BC18E6 /* CountriesCD+CoreDataClass.swift */; };
+		1A683E2E2B4A501500BC18E6 /* CountriesCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A683E2C2B4A501500BC18E6 /* CountriesCD+CoreDataProperties.swift */; };
+		1A683E312B4A6C0B00BC18E6 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 1A683E302B4A6C0B00BC18E6 /* JGProgressHUD */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,8 @@
 		1A081AEC2B49564200F88C7C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1A081AEE2B49946900F88C7C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		1A081AF12B49B04200F88C7C /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		1A683E2B2B4A501500BC18E6 /* CountriesCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountriesCD+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1A683E2C2B4A501500BC18E6 /* CountriesCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountriesCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A683E312B4A6C0B00BC18E6 /* JGProgressHUD in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +121,8 @@
 			children = (
 				1A081ABB2B492A4D00F88C7C /* AppDelegate.swift */,
 				1A081ABD2B492A4D00F88C7C /* SceneDelegate.swift */,
+				1A683E2B2B4A501500BC18E6 /* CountriesCD+CoreDataClass.swift */,
+				1A683E2C2B4A501500BC18E6 /* CountriesCD+CoreDataProperties.swift */,
 				1A081AF02B49AF8D00F88C7C /* AppDelegate */,
 				1A081AEC2B49564200F88C7C /* NetworkManager.swift */,
 				1A081AF12B49B04200F88C7C /* DatabaseManager.swift */,
@@ -163,6 +171,9 @@
 			dependencies = (
 			);
 			name = "Countries Listing By Suhail";
+			packageProductDependencies = (
+				1A683E302B4A6C0B00BC18E6 /* JGProgressHUD */,
+			);
 			productName = "Countries Listing By Suhail";
 			productReference = 1A081AB82B492A4D00F88C7C /* Countries Listing By Suhail.app */;
 			productType = "com.apple.product-type.application";
@@ -191,6 +202,9 @@
 				Base,
 			);
 			mainGroup = 1A081AAF2B492A4D00F88C7C;
+			packageReferences = (
+				1A683E2F2B4A6C0B00BC18E6 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
+			);
 			productRefGroup = 1A081AB92B492A4D00F88C7C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -224,9 +238,11 @@
 				1A081AEF2B49946900F88C7C /* LocationManager.swift in Sources */,
 				1A081AC02B492A4D00F88C7C /* MapViewController.swift in Sources */,
 				1A081ABC2B492A4D00F88C7C /* AppDelegate.swift in Sources */,
+				1A683E2E2B4A501500BC18E6 /* CountriesCD+CoreDataProperties.swift in Sources */,
 				1A081AE32B494A6300F88C7C /* DropDownViewController.swift in Sources */,
 				1A081AEB2B4955DC00F88C7C /* Country.swift in Sources */,
 				1A081AE12B49392300F88C7C /* CountryPoint.swift in Sources */,
+				1A683E2D2B4A501500BC18E6 /* CountriesCD+CoreDataClass.swift in Sources */,
 				1A081ADF2B492EBD00F88C7C /* CountriesViewController.swift in Sources */,
 				1A081ABE2B492A4D00F88C7C /* SceneDelegate.swift in Sources */,
 			);
@@ -451,6 +467,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1A683E2F2B4A6C0B00BC18E6 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1A683E302B4A6C0B00BC18E6 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A683E2F2B4A6C0B00BC18E6 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		1A081AC42B492A4D00F88C7C /* Countries_Listing_By_Suhail.xcdatamodeld */ = {
