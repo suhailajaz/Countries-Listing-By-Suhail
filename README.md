@@ -14,7 +14,6 @@ An alert controller is displayed when such scenario happens and then the app att
   ![Screenshot 2024-01-07 at 4 20 05 PM](https://github.com/suhailajaz/Countries-Listing-By-Suhail/assets/113661825/106f785c-365a-401c-8b6b-a082c02a1995)
 ![Screenshot 2024-01-07 at 4 20 45 PM](https://github.com/suhailajaz/Countries-Listing-By-Suhail/assets/113661825/90c32955-3355-4c78-ad92-225fbc5c54b5)
 ![Screenshot 2024-01-07 at 4 52 21 PM](https://github.com/suhailajaz/Countries-Listing-By-Suhail/assets/113661825/35c985bb-f1e9-4a8d-b72a-6b6a392ed1ca)
-
 ![Screenshot 2024-01-07 at 4 21 04 PM](https://github.com/suhailajaz/Countries-Listing-By-Suhail/assets/113661825/091ff26f-de45-482f-a767-8523dbfb2672)
 ![Screenshot 2024-01-07 at 4 21 34 PM](https://github.com/suhailajaz/Countries-Listing-By-Suhail/assets/113661825/a3c5e613-e306-4012-a04a-2ec3cc3b42eb)
 ![Screenshot 2024-01-07 at 4 21 50 PM](https://github.com/suhailajaz/Countries-Listing-By-Suhail/assets/113661825/ebe07191-a562-4bac-972d-6d6f7b987716)
