@@ -9,8 +9,8 @@
 * Clicking on a country redirects you to the wikipedia page of the country, whose link is also fetched from the api.
 * A live search feature has also been added to filter out the countries as you keep typing.
   
-# NOTE: There is an issue with the Api. SOmetimes it sucessfully fetches the data from the server and sometimes it fails to fetch
-# A alert controller is displayed when such scenario happens and then the app attempts to fetch the data again
+NOTE: There is an issue with the Api. SOmetimes it sucessfully fetches the data from the server and sometimes it fails to fetch
+A alert controller is displayed when such scenario happens and then the app attempts to fetch the data again
   ![Screenshot 2024-01-07 at 4 20 05 PM](https://github.com/suhailajaz/Countries-Listing-By-Suhail/assets/113661825/106f785c-365a-401c-8b6b-a082c02a1995)
 ![Screenshot 2024-01-07 at 4 20 45 PM](https://github.com/suhailajaz/Countries-Listing-By-Suhail/assets/113661825/90c32955-3355-4c78-ad92-225fbc5c54b5)
 ![Screenshot 2024-01-07 at 4 21 04 PM](https://github.com/suhailajaz/Countries-Listing-By-Suhail/assets/113661825/091ff26f-de45-482f-a767-8523dbfb2672)
