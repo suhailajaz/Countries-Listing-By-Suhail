@@ -9,7 +9,7 @@ import UIKit
 import JGProgressHUD
 
 class DropDownViewController: UIViewController {
-
+    
     @IBOutlet var tblDropDown: UITableView!
     var completion : ((CountriesCD?) -> ())?
     var countries = [CountriesCD]()
@@ -21,7 +21,7 @@ class DropDownViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            
+        
         tblDropDown.delegate = self
         tblDropDown.dataSource = self
         networkManager.delegate = self
@@ -29,21 +29,21 @@ class DropDownViewController: UIViewController {
         
         let countriesCached = defaults.bool(forKey: "cachedCountries")
         if countriesCached{
-            //fetched from core data
-            print("Read from core data")
+            
+            print("Reading from core data")
             if let fetchedResults = self.networkManager.fetchCachedCountries(){
                 self.updateUI(parsedCountries: fetchedResults)
             }
         }else{
-            //read from Api
-            print("Read from api")
+            
+            print("Reading from api")
             spinner.show(in: view)
             networkManager.fetchData { [weak self] success in
                 self?.defaults.set(true, forKey: "cachedCountries")
                 if let fetchedResults = self?.networkManager.fetchCachedCountries(){
                     self?.updateUI(parsedCountries: fetchedResults)
                 }
-               
+                
             }
         }
         
@@ -58,14 +58,15 @@ class DropDownViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         self.presentationController?.containerView?.backgroundColor = UIColor.clear
     }
+    
+}
+// MARK: - IBACtions
+extension DropDownViewController{
     @IBAction func btnBackPressed(_ sender: UIControl) {
         self.dismiss(animated: true)
     }
 }
-//IBACTIONS
-extension DropDownViewController{
-  
-}
+
 // MARK: - UITableView Methods
 extension DropDownViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,7 +77,7 @@ extension DropDownViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = countries[indexPath.row].name
-       
+        
         return cell
     }
     
@@ -104,7 +105,7 @@ extension DropDownViewController{
         
         btnBack.layer.cornerRadius = 12
         btnBack.layer.masksToBounds = true
-
+        
     }
 }
 
@@ -124,7 +125,7 @@ extension DropDownViewController: NetworkManagerDelegate{
     
     func networkError(error: Error) {
         print("error sent toa to main")
-         
+        
         let alert = UIAlertController(title: "Alert", message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default,handler: { _ in
             DispatchQueue.main.async{

@@ -23,14 +23,11 @@ class WikipediaViewController: UIViewController {
         super.viewDidLoad()
         guard var city = cityName else { return }
         if city.contains(" "){
-        city = city.replacingOccurrences(of: " ", with: "_")
+            city = city.replacingOccurrences(of: " ", with: "_")
         }
         let url = URL(string: "https://en.wikipedia.org/wiki/"+city)!
         webView.load(URLRequest(url: url))
         
     }
     
-
-    
-
 }

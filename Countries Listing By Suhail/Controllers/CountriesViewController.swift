@@ -26,6 +26,7 @@ class CountriesViewController: UIViewController,UITableViewDataSource,UITableVie
         super.viewDidLoad()
         tblCountries.dataSource = self
         tblCountries.delegate = self
+        networkManager.delegate = self
         title = "COUNTRIES"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "About", image: nil, target: self, action: #selector(aboutTheDeveloper))
         
@@ -54,21 +55,23 @@ class CountriesViewController: UIViewController,UITableViewDataSource,UITableVie
                         self?.tblCountries.reloadData()
                     }
                 }
-               
+                
             }
         }
         
     }
     
-
-
+    
+    
 }
 
 extension CountriesViewController{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredCountries.count
         
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let country = filteredCountries[indexPath.row]
@@ -80,32 +83,34 @@ extension CountriesViewController{
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 70
     }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "wiki") as! WikipediaViewController
         vc.cityName = filteredCountries[indexPath.row].name
-            navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
+    
+    
     @objc func aboutTheDeveloper(){
-         let ac = UIAlertController(title: "Developed by Sohail Ajaz", message: "This app is fully authneticated and verified under proper Apple guidelines.", preferredStyle: .alert)
-         ac.addAction(UIAlertAction(title: "Ok", style: .default))
-         present(ac,animated: true)
-     }
+        let ac = UIAlertController(title: "Developed by Sohail Ajaz", message: "This is a test app developed for demonstration at TrialX.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Ok", style: .default))
+        present(ac,animated: true)
+    }
 }
 
-
+// MARK: - SEarch Bar Delegate methods
 extension CountriesViewController: UISearchBarDelegate{
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredCountries = countries.filter({ $0.name?.lowercased().prefix(searchText.count) ?? "australia" == searchText.lowercased()
         })
-//        if searchText != ""{
-//            filteredCountries = countries.filter({ $0.name.common.lowercased().contains(searchText.lowercased())
-//            })
-            tblCountries.reloadData()
-        }
-        
+        tblCountries.reloadData()
+    }
+    
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
@@ -113,4 +118,28 @@ extension CountriesViewController: UISearchBarDelegate{
         
         tblCountries.reloadData()
     }
+}
+
+
+// MARK: - Network Manager Delegate Methods
+extension CountriesViewController: NetworkManagerDelegate{
+    
+    func networkError(error: Error) {
+        
+        let alert = UIAlertController(title: "Alert", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Try Again?", style: .default,handler: { _ in
+            DispatchQueue.main.async{
+                
+                self.viewDidLoad()
+            }
+            
+        }))
+        
+        DispatchQueue.main.async{
+            self.spinner.dismiss()
+            self.present(alert, animated: true)
+        }
+        
+    }
+    
 }
