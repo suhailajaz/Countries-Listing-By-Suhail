@@ -1,0 +1,6 @@
+framework module Pods_Countries_Listing_By_Suhail {
+  umbrella header "Pods-Countries Listing By Suhail-umbrella.h"
+
+  export *
+  module * { export * }
+}
