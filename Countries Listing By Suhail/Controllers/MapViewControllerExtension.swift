@@ -14,16 +14,21 @@ import MapKit
 extension MapViewController{
     
     ///used to add a marker to the map
-    func addMarker(markerPlace: CountriesCD){
-        
-        let lat = markerPlace.lat
-        let lon = markerPlace.lon
-        let newPoint = CountryPoint(title: markerPlace.name, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
-        
+    func addMarker(markerRegion: CountriesCD,fullCountries:[CountriesCD]){
+        var points = [CountryPoint]()
+        let lat = markerRegion.lat
+        let lon = markerRegion.lon
+       // let newPoint = CountryPoint(title: markerPlace.name, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
+        for country in fullCountries {
+            points.append(CountryPoint(title: country.name, coordinate: CLLocationCoordinate2D(latitude: country.lat, longitude: country.lon)))
+        }
         DispatchQueue.main.async{[weak self] in
-            self?.removePreviousAnnotations()
-            self?.mapView.addAnnotation(newPoint)
-            self?.lblCountry.text = markerPlace.name
+            //self?.removePreviousAnnotations()
+            for item in points{
+                self?.mapView.addAnnotation(item)
+            }
+            
+            self?.lblCountry.text = markerRegion.name
             self?.updateRegion(lat: lat, lon: lon)
         }
     }

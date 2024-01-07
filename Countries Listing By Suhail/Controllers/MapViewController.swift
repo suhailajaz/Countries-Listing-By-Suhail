@@ -40,10 +40,11 @@ extension MapViewController{
         
         if let vc = storyboard?.instantiateViewController(withIdentifier: "dropDown") as? DropDownViewController{
             
-            vc.completion = { chosenCountry in
+            vc.completion = { chosenCountry,allCountries in
                 
-                guard let mapCountry = chosenCountry else {return}
-                self.addMarker(markerPlace: mapCountry)
+                guard let mapCountry = chosenCountry,let wholeCountries = allCountries else {return}
+                
+                self.addMarker(markerRegion: mapCountry, fullCountries: wholeCountries)
                 
             }
             

@@ -11,7 +11,7 @@ import JGProgressHUD
 class DropDownViewController: UIViewController {
     
     @IBOutlet var tblDropDown: UITableView!
-    var completion : ((CountriesCD?) -> ())?
+    var completion : ((CountriesCD?,[CountriesCD]?) -> ())?
     var countries = [CountriesCD]()
     var networkManager = NetworkManager()
     let defaults = UserDefaults.standard
@@ -87,7 +87,7 @@ extension DropDownViewController: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.dismiss(animated: true){  
-            self.completion?(self.countries[indexPath.row])
+            self.completion?(self.countries[indexPath.row],self.countries)
         }
     }
 }
