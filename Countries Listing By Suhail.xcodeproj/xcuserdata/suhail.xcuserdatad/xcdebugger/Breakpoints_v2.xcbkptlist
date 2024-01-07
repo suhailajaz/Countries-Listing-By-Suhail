@@ -30,6 +30,101 @@
             endingLineNumber = "193"
             landmarkName = "locationManager(_:didUpdateLocations:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A0B64204-7DE7-491A-94B9-00D53635E813 - 4e1f740a2cd32187"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Countries_Listing_By_Suhail.MapViewController.locationManager(_: __C.CLLocationManager, didUpdateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "Countries Listing By Suhail"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/suhail/Desktop/Countries%20Listing%20By%20Suhail/Countries%20Listing%20By%20Suhail/Controllers/MapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "332">
+               </Location>
+               <Location
+                  uuid = "A0B64204-7DE7-491A-94B9-00D53635E813 - 4e1f740a2cd32de1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Countries_Listing_By_Suhail.MapViewController.locationManager(_: __C.CLLocationManager, didUpdateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "Countries Listing By Suhail"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/suhail/Desktop/Countries%20Listing%20By%20Suhail/Countries%20Listing%20By%20Suhail/Controllers/MapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "193"
+                  endingLineNumber = "193"
+                  offsetFromSymbolStart = "332">
+               </Location>
+               <Location
+                  uuid = "A0B64204-7DE7-491A-94B9-00D53635E813 - 4e1f740a2cd32de1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Countries_Listing_By_Suhail.MapViewController.locationManager(_: __C.CLLocationManager, didUpdateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "Countries Listing By Suhail"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/suhail/Desktop/Countries%20Listing%20By%20Suhail/Countries%20Listing%20By%20Suhail/Controllers/MapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "193"
+                  endingLineNumber = "193"
+                  offsetFromSymbolStart = "336">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F79EEE45-A0AD-45F0-A4B4-CA23613425E3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Countries Listing By Suhail/Resources/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "parseJSON(url:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F79EEE45-A0AD-45F0-A4B4-CA23613425E3 - 5ab2aa6eda40fd77"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Countries_Listing_By_Suhail.NetworkManager.parseJSON(url: Foundation.URL) -&gt; ()"
+                  moduleName = "Countries Listing By Suhail"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/suhail/Desktop/Countries%20Listing%20By%20Suhail/Countries%20Listing%20By%20Suhail/Resources/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "1132">
+               </Location>
+               <Location
+                  uuid = "F79EEE45-A0AD-45F0-A4B4-CA23613425E3 - 5ab2aa6eda40fd77"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Countries_Listing_By_Suhail.NetworkManager.parseJSON(url: Foundation.URL) -&gt; ()"
+                  moduleName = "Countries Listing By Suhail"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/suhail/Desktop/Countries%20Listing%20By%20Suhail/Countries%20Listing%20By%20Suhail/Resources/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "1536">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -190,7 +190,7 @@ extension MapViewController: CLLocationManagerDelegate{
              let lat = location.coordinate.latitude
              let lon = location.coordinate.longitude
             // weatherManager.fetchWeather(latitude: lat, longitude: lon)
-             addMarker(markerPlace: Country(name: Name(common: "Current Location"), latlng: [lat,lon]))
+             addMarker(markerPlace: Country(name: Name(common: "Current Location"), latlng: [lat,lon], flags: Flags(png: "https://flagcdn.com/w320/in.pngF")))
              
          }
     
@@ -198,7 +198,7 @@ extension MapViewController: CLLocationManagerDelegate{
      }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error fetching location")
-        addMarker(markerPlace: Country(name: Name(common: "Failsafe Location"), latlng: [34.1289,74.8425]))
+        addMarker(markerPlace: Country(name: Name(common: "Failsafe Location"), latlng: [34.1289,74.8425], flags: Flags(png: "https://flagcdn.com/w320/in.png")))
     }
 
 }

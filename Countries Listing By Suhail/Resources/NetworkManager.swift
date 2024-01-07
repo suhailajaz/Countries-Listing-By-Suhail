@@ -44,8 +44,11 @@ struct NetworkManager{
                           //self.countries = countryData
                           //filteredCountries = countries
                           print("######")
-                          print(countryData)
-                          delegate?.updateUI(parsedCountries: countryData)
+                          //print(countryData)
+                          DatabaseManager.shared.cacheQuestionsToLocalDB(parsedCountries: countryData) { success in
+                              print("Data sucessfully cached")
+                          }
+                          //delegate?.updateUI(parsedCountries: countryData)
                         
 
                       } catch {
@@ -54,4 +57,5 @@ struct NetworkManager{
                   }
               }.resume()
     }
+    
 }
